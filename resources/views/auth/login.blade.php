@@ -16,7 +16,7 @@
                                 <p>For demo please login withing following details.</p>
                                 <blockquote>
                                     <span class="font-weight-bold">Email Address:</span> admin@example.com<br>
-                                    <span class="font-weight-bold">Password:</span>  secret
+                                    <span class="font-weight-bold">Password:</span> secret
                                 </blockquote>
                             </div>
                         </div>
