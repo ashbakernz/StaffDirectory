@@ -15,11 +15,11 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index()->nullable();
             $table->unsignedInteger('department_id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('bio_description');
+            $table->text('bio_description');
             $table->timestamps();
             $table->foreign('department_id')->references('id')->on('departments');
         });

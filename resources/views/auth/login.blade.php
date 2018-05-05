@@ -10,6 +10,16 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+        
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <p>For demo please login withing following details.</p>
+                                <blockquote>
+                                    <span class="font-weight-bold">Email Address:</span> admin@example.com<br>
+                                    <span class="font-weight-bold">Password:</span>  secret
+                                </blockquote>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

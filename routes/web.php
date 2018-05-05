@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/employees ', 'EmployeeController@index');
+Route::get('/employees/show/{id}', 'EmployeeController@show');
 Route::get('/departments ', 'DepartmentController@index');

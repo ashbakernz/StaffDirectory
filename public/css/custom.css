@@ -2,6 +2,15 @@ body{
     background-color: #f4f4f4;
 }
 
+/* Card */
+.card-profile-img {
+max-width: 6rem;
+margin-bottom: 1rem;
+border: 3px solid #fff;
+border-radius: 100%;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
 /* Button */
 .btn-primary {
     color: #fff;
@@ -49,8 +58,9 @@ body{
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
+
 .select-department{
-    padding: none;
+    padding: 0px !important;
     border-radius: 0px;
 }
 

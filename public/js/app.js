@@ -47350,9 +47350,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             search: '',
-            selectedDepartment: '',
+            selectedDepartment: 'Any',
             employees: [],
-            meta: null,
             departments: []
         };
     },
@@ -47364,18 +47363,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var filtered = this.employees;
             var filteredEmployeesByDepartment = "";
 
-            if (this.search && this.selectedDepartment != "") {
+            if (this.search && this.selectedDepartment != "Any") {
 
                 // Filtered the employees by department
                 filteredEmployeesByDepartment = this.employees.filter(function (employees) {
                     return employees.department.toLowerCase().includes(_this.selectedDepartment.toLowerCase());
                 });
 
-                // Then filter the filtered employees (By department) by the search input
+                // Then filter the filtered employees (by department) by the search input
                 filtered = filteredEmployeesByDepartment.filter(function (employees) {
                     return employees.name.toLowerCase().includes(_this.search.toLowerCase());
                 });
-            } else if (this.selectedDepartment != "") {
+            } else if (this.selectedDepartment != "Any") {
+
                 // Return all users filtered based on department option
                 filtered = this.employees.filter(function (employees) {
                     return employees.department.toLowerCase().includes(_this.selectedDepartment.toLowerCase());
@@ -47387,27 +47387,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return employees.name.toLowerCase().includes(_this.search.toLowerCase());
                 });
             }
-            if (filtered.length > 0) {
-                return filtered;
-            } else {
-                return false;
-            }
+
+            return filtered;
         }
     },
     methods: {
+        // Get employees data
         getEmployees: function getEmployees(page) {
             var _this2 = this;
 
             axios('/employees').then(function (response) {
                 _this2.employees = response.data.data;
-                _this2.meta = response.data.meta;
             });
         },
+
+        // Get departments data
         getDepartments: function getDepartments() {
             var _this3 = this;
 
             axios('/departments').then(function (response) {
-                // console.log(response.data)
                 _this3.departments = response.data;
             });
         }
@@ -47429,7 +47427,9 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c(
       "div",
-      { staticClass: "form-row align-items-center justify-content-center" },
+      {
+        staticClass: "form-row align-items-center justify-content-center mx-2"
+      },
       [
         _c("div", { staticClass: "col-md-6" }, [
           _c("label", [_vm._v("Name")]),
@@ -47457,7 +47457,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-6" }, [
           _c("label", [_vm._v("Department")]),
           _vm._v(" "),
           _c(
@@ -47490,43 +47490,53 @@ var render = function() {
                 }
               }
             },
-            _vm._l(_vm.departments, function(department) {
-              return _c("option", { key: department.name }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(department.name) +
-                    "\n                "
-                )
-              ])
-            })
+            [
+              _c("option", { attrs: { value: "Any", selected: "" } }, [
+                _vm._v("Any")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.departments, function(department) {
+                return _c("option", { key: department.name }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(department.name) +
+                      "\n                "
+                  )
+                ])
+              })
+            ],
+            2
           )
         ])
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-10" }, [
-        _vm.filteredList
-          ? _c("div", [
-              _c(
-                "ul",
-                { staticClass: "list-unstyled" },
-                _vm._l(_vm.filteredList, function(employee) {
-                  return _c("employee", {
-                    key: employee.id,
-                    attrs: { employee: employee }
-                  })
-                })
-              )
-            ])
-          : _c("div", { staticClass: "alert alert-light" }, [
-              _vm._v("\n                No results found.\n            ")
-            ])
-      ])
-    ])
+    _vm.filteredList.length > 0
+      ? _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.filteredList, function(employee) {
+            return _c("employee", {
+              key: employee.id,
+              attrs: { employee: employee }
+            })
+          })
+        )
+      : _c("div", { staticClass: "row" }, [_vm._m(0)])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("div", { staticClass: "alert alert-light" }, [
+        _vm._v("\n                No results found.\n            ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47622,7 +47632,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n.media-border-color[data-v-faff4e36] {\n    border-top: 4px solid #177E6D;\n    border-radius: 0 0 1px 1px;\n}\n.avatar[data-v-faff4e36]{\n    height: 150px;\n}\n.text-subtitle[data-v-faff4e36] {\n    display: block;\n    font-size: 0.8rem;\n    line-height: 1;\n    margin-bottom: 4px;\n    color: #878787;\n}\n.text-name[data-v-faff4e36]{\n    font-size: 1.385rem;\n    font-weight: 400;\n    color: #3d3d3d;\n    padding: 24px 0 0x;\n}\n.media-body[data-v-faff4e36]{\n    padding: 14px 20px 14px;\n    color: #545454;\n    font-size: 0.9rem;\n}\n.employee-card[data-v-faff4e36] {\n    background-color: #FFFFFF;\n    margin-bottom: 29px;\n    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    border-radius: 1px;\n}\n@media only screen and (max-width: 600px) {\n.avatar[data-v-faff4e36]{\n        margin-top: 20px;\n        padding-left: 10px;\n        height: 60px;\n}\n.media-body[data-v-faff4e36]{\n        /* padding: 20px 0px 20px 0px; */\n        font-size: 0.8rem;\n}\n} \n", ""]);
+exports.push([module.i, "\n.media-border-color[data-v-faff4e36] {\n    border-top: 4px solid #177E6D;\n    border-radius: 0 0 1px 1px;\n}\n.avatar[data-v-faff4e36]{\n    height: 150px;\n    width: 150px;\n}\n.text-subtitle[data-v-faff4e36] {\n    display: block;\n    font-size: 0.8rem;\n    line-height: 1;\n    margin-bottom: 4px;\n    color: #878787;\n}\n.text-name[data-v-faff4e36]{\n    font-size: 1.385rem;\n    font-weight: 400;\n    color: #3d3d3d;\n    padding: 24px 0 0x;\n}\n.media-body[data-v-faff4e36]{\n    padding: 14px 20px 14px;\n    color: #545454;\n    font-size: 0.9rem;\n}\n.employee-card[data-v-faff4e36] {\n    background-color: #FFFFFF;\n    margin-bottom: 29px;\n    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    border-radius: 1px;\n}\n@media only screen and (max-width: 600px) {\n.avatar[data-v-faff4e36]{\n        margin-top: 20px;\n        padding-left: 10px;\n        height: 60px;\n}\n.media-body[data-v-faff4e36]{\n        /* padding: 20px 0px 20px 0px; */\n        font-size: 0.8rem;\n}\n} \n", ""]);
 
 // exports
 
@@ -47989,6 +47999,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['employee']
@@ -48002,35 +48032,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "li",
-    { staticClass: "media my-3 employee-card media-border-color" },
-    [
-      _c("img", {
-        staticClass: "avatar d-none d-lg-block",
-        attrs: { src: _vm.employee.user.data.avatar }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "media-body" }, [
-        _c("h4", { staticClass: "mb-1 text-name" }, [
-          _vm._v(_vm._s(_vm.employee.name))
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "text-subtitle mb-1" }, [
-          _vm._v(_vm._s(_vm.employee.department))
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            _vm._s(_vm.employee.bio_description.substring(0, 150)) + " ... "
-          ),
-          _c("a", { staticClass: "btn-link", attrs: { href: "#" } }, [
-            _vm._v("read more")
+  return _c("div", { staticClass: "col-lg-12" }, [
+    _c("div", { staticClass: "card mb-2 mx-2" }, [
+      _c("div", { staticClass: "card-body d-flex flex-column" }, [
+        _c("div", { staticClass: "media" }, [
+          _c("div", { staticClass: "pr-20 d-none d-md-block" }, [
+            _c(
+              "a",
+              { staticClass: "avatar", attrs: { href: "javascript:void(0)" } },
+              [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: _vm.employee.user.data.avatar, alt: "..." }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "media-body" }, [
+            _c("h5", { staticClass: "mt-0 mb-2" }, [
+              _vm._v(_vm._s(_vm.employee.name))
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "text-subtitle mb-1" }, [
+              _vm._v(_vm._s(_vm.employee.department))
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.employee.bio_description))])
           ])
         ])
       ])
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

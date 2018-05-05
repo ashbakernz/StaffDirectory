@@ -1,5 +1,5 @@
 <template>
-    <li class="media my-3 employee-card media-border-color">
+    <!-- <li class="media my-3 employee-card media-border-color">
         <img v-bind:src="employee.user.data.avatar" class="avatar d-none d-lg-block">
 
         <div class="media-body">
@@ -8,7 +8,27 @@
        
             <p>{{ employee.bio_description.substring(0, 150) }} ... <a href="#" class="btn-link">read more</a></p>
         </div>
-    </li>
+    </li> -->
+
+
+    <div class="col-lg-12">
+        <div class="card mb-2 mx-2">
+            <div class="card-body d-flex flex-column">
+                <div class="media">
+                    <div class="pr-20 d-none d-md-block">
+                        <a class="avatar" href="javascript:void(0)">
+                            <img class="img-fluid" v-bind:src="employee.user.data.avatar" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-2">{{ employee.name}}</h5>
+                        <span class="text-subtitle mb-1">{{ employee.department}}</span>
+                        <p>{{ employee.bio_description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -26,6 +46,7 @@
     }
     .avatar{
         height: 150px;
+        width: 150px;
     }
 
     .text-subtitle {
