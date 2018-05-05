@@ -16,6 +16,10 @@ Once you have cloned down the repo you must open your terminal in the root direc
 
 `composer install`
 
+`npm install`
+
+`npm run dev`
+
 ### Setup the database
 Once everything has installed you have to create a database and put your credentials in the .env file.
 
