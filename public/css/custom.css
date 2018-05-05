@@ -1,0 +1,95 @@
+body{
+    background-color: #f4f4f4;
+}
+
+/* Button */
+.btn-primary {
+    color: #fff;
+    background-color: #177E6D;
+    border-color: #177E6D;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #177E6D;
+    border-color: #177E6D;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #177E6D;
+    border-color: #177E6D;
+}
+.btn-link {
+    font-weight: 400;
+    color: #177E6D;
+    background-color: transparent;
+}
+.btn-link:hover {
+    color: #177E6D;
+    text-decoration: underline;
+    background-color: transparent;
+    border-color: transparent;
+}
+/* Inputs */
+.form-control{
+    display: block;
+    width: 100%;
+    padding: 0.81rem 0.7692rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: #878787;
+    /* background-color: #FFFFFF; */
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 2px solid #ebebeb;
+    border-radius: 0px;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+.select-department{
+    padding: none;
+    border-radius: 0px;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #177E6D;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.1rem rgba(26, 117, 83, 0.25);
+    box-shadow: 0 0 0 0.1rem rgba(26, 117, 83, 0.25);
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .employee-card{
+        
+    }
+    .employee-card .card-img-top-left{
+         height: 50px;   
+    }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

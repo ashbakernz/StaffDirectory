@@ -13,8 +13,7 @@ class EmployeeTransformer extends \League\Fractal\TransformerAbstract
     {
         return [
             'id' => $employee->id,
-            'first_name' => $employee->first_name,
-            'last_name' => $employee->last_name,
+            'name' => $employee->first_name . ' ' . $employee->last_name,
             'bio_description' => $employee->bio_description,
             'department' => $employee->department->name,
             'created_at_human' => $employee->created_at->diffForHumans(),

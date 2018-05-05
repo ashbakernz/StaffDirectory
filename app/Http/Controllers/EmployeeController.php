@@ -12,12 +12,11 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::with('department')->latestFirst()->get();
-        // $employeesCollection = $employees->getCollection();
+        
         return fractal()
             ->collection($employees)
             ->parseIncludes(['user'])
             ->transformWith(new EmployeeTransformer)
-            // ->paginateWith(new IlluminatePaginatorAdapter($employees))
             ->toArray();
             
     }

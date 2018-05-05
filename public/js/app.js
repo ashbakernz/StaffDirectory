@@ -47340,14 +47340,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             search: '',
+            selectedDepartment: '',
             employees: [],
             meta: null,
-            selectedDepartment: '',
             departments: []
         };
     },
@@ -47356,15 +47361,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         filteredList: function filteredList() {
             var _this = this;
 
-            if (this.selectedDepartment == this.employees.department) {
-                return this.employees.filter(function (employees) {
-                    return employees.bio_description.toLowerCase().includes(_this.selectedDepartment.toLowerCase());
+            var filtered = this.employees;
+            var filteredEmployeesByDepartment = "";
+
+            if (this.search && this.selectedDepartment != "") {
+
+                // Filtered the employees by department
+                filteredEmployeesByDepartment = this.employees.filter(function (employees) {
+                    return employees.department.toLowerCase().includes(_this.selectedDepartment.toLowerCase());
+                });
+
+                // Then filter the filtered employees (By department) by the search input
+                filtered = filteredEmployeesByDepartment.filter(function (employees) {
+                    return employees.name.toLowerCase().includes(_this.search.toLowerCase());
+                });
+            } else if (this.selectedDepartment != "") {
+                // Return all users filtered based on department option
+                filtered = this.employees.filter(function (employees) {
+                    return employees.department.toLowerCase().includes(_this.selectedDepartment.toLowerCase());
+                });
+            } else {
+
+                // Return all users filtered based on search input
+                filtered = this.employees.filter(function (employees) {
+                    return employees.name.toLowerCase().includes(_this.search.toLowerCase());
                 });
             }
-
-            return this.employees.filter(function (employees) {
-                return employees.first_name.toLowerCase().includes(_this.search.toLowerCase());
-            });
+            if (filtered.length > 0) {
+                return filtered;
+            } else {
+                return false;
+            }
         }
     },
     methods: {
@@ -47444,7 +47471,8 @@ var render = function() {
                   expression: "selectedDepartment"
                 }
               ],
-              staticClass: "form-control mb-2 form-control-lg",
+              staticClass:
+                "form-control mb-2 form-control-lg select-department",
               attrs: { id: "inputfilter", name: "inputfilter" },
               on: {
                 change: function($event) {
@@ -47477,16 +47505,24 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-10" },
-        _vm._l(_vm.filteredList, function(employee) {
-          return _c("employee", {
-            key: employee.id,
-            attrs: { employee: employee }
-          })
-        })
-      )
+      _c("div", { staticClass: "col-md-10" }, [
+        _vm.filteredList
+          ? _c("div", [
+              _c(
+                "ul",
+                { staticClass: "list-unstyled" },
+                _vm._l(_vm.filteredList, function(employee) {
+                  return _c("employee", {
+                    key: employee.id,
+                    attrs: { employee: employee }
+                  })
+                })
+              )
+            ])
+          : _c("div", { staticClass: "alert alert-light" }, [
+              _vm._v("\n                No results found.\n            ")
+            ])
+      ])
     ])
   ])
 }
@@ -47586,7 +47622,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n.employee-card[data-v-faff4e36] {\n    padding-bottom: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.media-border-color[data-v-faff4e36] {\n    border-top: 4px solid #177E6D;\n    border-radius: 0 0 1px 1px;\n}\n.avatar[data-v-faff4e36]{\n    height: 150px;\n}\n.text-subtitle[data-v-faff4e36] {\n    display: block;\n    font-size: 0.8rem;\n    line-height: 1;\n    margin-bottom: 4px;\n    color: #878787;\n}\n.text-name[data-v-faff4e36]{\n    font-size: 1.385rem;\n    font-weight: 400;\n    color: #3d3d3d;\n    padding: 24px 0 0x;\n}\n.media-body[data-v-faff4e36]{\n    padding: 14px 20px 14px;\n    color: #545454;\n    font-size: 0.9rem;\n}\n.employee-card[data-v-faff4e36] {\n    background-color: #FFFFFF;\n    margin-bottom: 29px;\n    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    border-radius: 1px;\n}\n@media only screen and (max-width: 600px) {\n.avatar[data-v-faff4e36]{\n        margin-top: 20px;\n        padding-left: 10px;\n        height: 60px;\n}\n.media-body[data-v-faff4e36]{\n        /* padding: 20px 0px 20px 0px; */\n        font-size: 0.8rem;\n}\n} \n", ""]);
 
 // exports
 
@@ -47953,11 +47989,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['employee']
@@ -47971,32 +48002,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "employee-card" }, [
-    _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm col-sm-auto pr-0" }, [
-          _c("img", {
-            staticClass: "card-img-top-left",
-            attrs: { height: "150px", src: _vm.employee.user.data.avatar }
-          })
+  return _c(
+    "li",
+    { staticClass: "media my-3 employee-card media-border-color" },
+    [
+      _c("img", {
+        staticClass: "avatar d-none d-lg-block",
+        attrs: { src: _vm.employee.user.data.avatar }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "media-body" }, [
+        _c("h4", { staticClass: "mb-1 text-name" }, [
+          _vm._v(_vm._s(_vm.employee.name))
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm px-0" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [
-              _vm._v(
-                _vm._s(_vm.employee.first_name + " " + _vm.employee.last_name)
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(_vm.employee.bio_description))
-            ])
+        _c("span", { staticClass: "text-subtitle mb-1" }, [
+          _vm._v(_vm._s(_vm.employee.department))
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            _vm._s(_vm.employee.bio_description.substring(0, 150)) + " ... "
+          ),
+          _c("a", { staticClass: "btn-link", attrs: { href: "#" } }, [
+            _vm._v("read more")
           ])
         ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
