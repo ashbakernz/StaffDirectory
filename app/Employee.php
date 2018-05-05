@@ -10,14 +10,15 @@ class Employee extends Model
     {
         return $query->orderBy('created_at', 'desc');
     }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
  
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+    
+    // Get gravatar based on employee email address. 
+    public function avatar()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=150&d=mm';
     }
 }

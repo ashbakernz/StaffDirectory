@@ -47345,6 +47345,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47632,7 +47635,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n.media-border-color[data-v-faff4e36] {\n    border-top: 4px solid #177E6D;\n    border-radius: 0 0 1px 1px;\n}\n.avatar[data-v-faff4e36]{\n    height: 150px;\n    width: 150px;\n}\n.text-subtitle[data-v-faff4e36] {\n    display: block;\n    font-size: 0.8rem;\n    line-height: 1;\n    margin-bottom: 4px;\n    color: #878787;\n}\n.text-name[data-v-faff4e36]{\n    font-size: 1.385rem;\n    font-weight: 400;\n    color: #3d3d3d;\n    padding: 24px 0 0x;\n}\n.media-body[data-v-faff4e36]{\n    padding: 14px 20px 14px;\n    color: #545454;\n    font-size: 0.9rem;\n}\n.employee-card[data-v-faff4e36] {\n    background-color: #FFFFFF;\n    margin-bottom: 29px;\n    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);\n    border-radius: 1px;\n}\n@media only screen and (max-width: 600px) {\n.avatar[data-v-faff4e36]{\n        margin-top: 20px;\n        padding-left: 10px;\n        height: 60px;\n}\n.media-body[data-v-faff4e36]{\n        /* padding: 20px 0px 20px 0px; */\n        font-size: 0.8rem;\n}\n} \n", ""]);
+exports.push([module.i, "\n.avatar[data-v-faff4e36]{\n    height: 150px;\n    width: 150px;\n}\n.text-subtitle[data-v-faff4e36] {\n    display: block;\n    font-size: 0.8rem;\n    line-height: 1;\n    margin-bottom: 4px;\n    color: #878787;\n}\n.media-body[data-v-faff4e36]{\n    padding: 14px 20px 14px;\n    color: #545454;\n    font-size: 0.9rem;\n}\n", ""]);
 
 // exports
 
@@ -48007,18 +48010,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['employee']
@@ -48043,7 +48034,7 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "img-fluid",
-                  attrs: { src: _vm.employee.user.data.avatar, alt: "..." }
+                  attrs: { src: _vm.employee.avatar, alt: "..." }
                 })
               ]
             )

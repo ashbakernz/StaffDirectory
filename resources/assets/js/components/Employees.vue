@@ -1,10 +1,12 @@
 <template>
     <div class="container">
         <div class="form-row align-items-center justify-content-center mx-2">
+
             <div class="col-md-6">
                 <label>Name</label>
                 <input v-model="search" id="inputKeyword" name="inputKeyword" type="text" class="form-control mb-2 form-control-lg">
             </div>
+            
             <div class="col-md-6">
                 <label>Department</label>
                 <select v-model="selectedDepartment" id="inputfilter" name="inputfilter" class="form-control mb-2 form-control-lg select-department">
@@ -14,6 +16,7 @@
                     </option>
                 </select>
             </div>
+
         </div>
 
         <div class="row" v-if="filteredList.length > 0">
