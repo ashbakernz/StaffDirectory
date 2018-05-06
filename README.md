@@ -1,6 +1,4 @@
-<h3 align="center">
-Staff Directory
-</h3>
+<p align="center"><a href="https://github.com/ashbakernz/staffdirectory"><img height="150" src="https://i.imgur.com/iA19zjG.png"></a></p>
 
 ## What is Staff Directory?
 
@@ -33,6 +31,16 @@ Once the database is all setup you will need to migrate and seed the database to
 
 `php artisan migrate --seed`
 
+### All done!
+
+You can now load the website on your local address and login using the following details.
+
+```
+Email Address: admin@example.com
+Password: secret
+```
+
+## License
 ```
 MIT License
 
