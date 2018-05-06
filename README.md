@@ -36,8 +36,8 @@ Once the database is all setup you will need to migrate and seed the database to
 You can now load the website on your local address and login using the following details.
 
 ```
-**Email Address:** admin@example.com
-**Password:** secret
+Email Address: admin@example.com
+Password: secret
 ```
 
 ## License
