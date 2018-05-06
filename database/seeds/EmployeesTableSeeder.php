@@ -20,7 +20,7 @@ class EmployeesTableSeeder extends Seeder
             'first_name' => $obj->first_name,
             'last_name' => $obj->last_name,
             'department_id' => $obj->department_id,
-            'email' => $obj->id,
+            'email' => 'user@example.com',
             'bio_description' => $obj->bio_description
           ));
         }
