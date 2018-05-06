@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #e7f5ff2e;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -67,13 +67,13 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    {{ config('app.name', 'Laravel') }}
+                <div class="title m-b-md"> 
+                    <img src="/images/logo.png">
                 </div>
 
                 <div class="links">
                     @auth
-                    <a href="{{ url('/home') }}">Home</a>
+                    <a href="{{ url('/home') }}">Back to directory</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                     @endauth

@@ -1,8 +1,22 @@
 body{
-    background-color: #f4f4f4;
+    background-color: #e7f5ff2e;
 }
 
+/* Login Page */
+.content {
+    text-align: center;
+}
+.title {
+font-size: 84px;
+}
+.login-card{
+    padding: 4rem;
+}
 /* Card */
+.card{
+    /* border: none; */
+    border-radius: 0;
+}
 .card-profile-img {
 max-width: 6rem;
 margin-bottom: 1rem;
@@ -14,26 +28,26 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 /* Button */
 .btn-primary {
     color: #fff;
-    background-color: #177E6D;
-    border-color: #177E6D;
+    background-color: #1c7ed6;
+    border-color: #1c7ed6;
 }
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #177E6D;
-    border-color: #177E6D;
+    background-color: #1c7ed6;
+    border-color: #1c7ed6;
 }
 .btn-primary:hover {
     color: #fff;
-    background-color: #177E6D;
-    border-color: #177E6D;
+    background-color: #1c7ed6;
+    border-color: #1c7ed6;
 }
 .btn-link {
     font-weight: 400;
-    color: #177E6D;
+    color: #1c7ed6;
     background-color: transparent;
 }
 .btn-link:hover {
-    color: #177E6D;
+    color: #1c7ed6;
     text-decoration: underline;
     background-color: transparent;
     border-color: transparent;
@@ -50,7 +64,6 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     background-image: none;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    border: 2px solid #ebebeb;
     border-radius: 0px;
     -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
@@ -61,13 +74,13 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 
 .select-department{
     padding: 0px !important;
-    border-radius: 0px;
+    border-radius: 0px!important;
 }
 
 .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #177E6D;
+    border-color: #1c7ed6;
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.1rem rgba(26, 117, 83, 0.25);
     box-shadow: 0 0 0 0.1rem rgba(26, 117, 83, 0.25);
