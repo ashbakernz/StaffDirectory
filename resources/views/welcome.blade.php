@@ -11,6 +11,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
         <style>
             html, body {
                 background-color: #e7f5ff2e;
@@ -45,10 +47,6 @@
                 text-align: center;
             }
 
-            .title {
-                font-size: 84px;
-            }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -68,9 +66,8 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md"> 
-                    <img src="/images/logo.png">
+                    <img class="img-fluid" src="/images/logo.png">
                 </div>
-
                 <div class="links">
                     @auth
                     <a href="{{ url('/home') }}">Back to directory</a>
