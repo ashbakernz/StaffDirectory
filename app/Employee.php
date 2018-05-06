@@ -19,6 +19,6 @@ class Employee extends Model
     // Get gravatar based on employee email address. 
     public function avatar()
     {
-        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=150&d=mm';
+        return 'https://api.adorable.io/avatars/150/avatar'. $this->id . '.png'; 
     }
 }
